@@ -38,7 +38,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
    
    public MaxHeap(T[] entries)
    {
-	   this (entries.length) // Call other constructor
+	   this (entries.length); // Call other constructor
 	   assert integrityOK = true;
 	   
 	   //Copy given array to data field
@@ -115,7 +115,24 @@ public final class MaxHeap<T extends Comparable<? super T>>
    private void checkIntegrity()
    {
       if (!integrityOK)
-         throw new SecurityException("ArrayBag object is corrupt.");
+         throw new SecurityException("MaxHeap object is corrupt.");
+   }
+   
+   //Throws an exception if capacity is above maximum
+   private void checkCapacity(int newLength)
+   {
+      if (newLength > MAX_CAPACITY)
+         throw new IllegalStateException("Attempted to create heap with capacity greater than " + MAX_CAPACITY);
+   }
+   
+   private void ensureCapacity()
+   {
+      if (lastIndex >= heap.length - 1) // If heap is full, double its size
+      {
+         int newLength = 2 * heap.length;
+         checkCapacity(newLength);
+         heap = Arrays.copyOf(heap, newLength);
+      }
    }
    
 // Private methods
@@ -130,9 +147,9 @@ public final class MaxHeap<T extends Comparable<? super T>>
 	   {
 		   int largerChildIndex = leftChildIndex; //Assume larger
 		   int rightChildIndex = leftChildIndex + 1;
-		   if (rightChildIndex <= lastIndex) && heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
+		   if (rightChildIndex <= lastIndex && heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
 			{
-				heap[rootIndex] = heap[larherChildIndex];
+				heap[rootIndex] = heap[largerChildIndex];
 				rootIndex = largerChildIndex;
 				leftChildIndex = 2 * rootIndex;
 			}
