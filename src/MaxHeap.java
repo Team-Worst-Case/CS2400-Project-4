@@ -110,6 +110,13 @@ public final class MaxHeap<T extends Comparable<? super T>>
 	   } // end while
       lastIndex = 0;
    } // end clear
+
+   // Throws an exception if this object is not initialized.
+   private void checkIntegrity()
+   {
+      if (!integrityOK)
+         throw new SecurityException("ArrayBag object is corrupt.");
+   }
    
 // Private methods
 // . . .
