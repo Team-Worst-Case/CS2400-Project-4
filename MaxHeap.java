@@ -12,8 +12,8 @@ public final class MaxHeap<T extends Comparable<? super T>>
    private T[] heap;      // Array of heap entries; ignore heap[0]
    private int lastIndex; // Index of last entry and number of entries
    private boolean integrityOK = false;
-	private static final int DEFAULT_CAPACITY = 25;
-	private static final int MAX_CAPACITY = 10000;
+   private static final int DEFAULT_CAPACITY = 25;
+   private static final int MAX_CAPACITY = 10000;
    
    public MaxHeap()
    {
@@ -35,15 +35,50 @@ public final class MaxHeap<T extends Comparable<? super T>>
       lastIndex = 0;
       integrityOK = true;
    } // end constructor
+   
+   public MaxHeap(T[] entries)
+   {
+	   this (entries.length) // Call other constructor
+	   assert integrityOK = true;
+	   
+	   //Copy given array to data field
+	   for (int index = 0; index < entries.length; index++)
+		   heap[index + 1] = entries[index];
+	   
+	   //Create heap
+	   for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
+		   reheap(rootIndex);
+   }
 
    public void add(T newEntry)
    {
-   // See Segment 27.8.
+   		checkIntegrity();
+   		int newIndex = lastIndex + 1;
+   		int parentIndex = newIndex / 2;
+   		while ((parentIndex > 0) && newEntry.compareTo(heap[parentIndex]) > 0)
+   		{
+   			heap[newIndex] = heap[parentIndex];
+   			newIndex = parentIndex;
+   			parentIndex = newIndex / 2;
+   		}
+   		heap[newIndex] = newEntry;
+   		lastIndex++;
+   		ensureCapacity();
    } // end add
 
    public T removeMax()
    {
-   // See Segment 27.12. 
+	   checkIntegrity();
+	   T root = null;
+	   
+	   if (!isEmpty())
+	   {
+		   root = heap[1];
+		   heap[1] = heap[lastIndex];
+		   lastIndex--;
+		   reheap(1);
+	   }
+	   return root;
    } // end removeMax
 
    public T getMax()
@@ -67,15 +102,36 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
    public void clear()
    {
-		checkIntegrity();
-      while (lastIndex > -1)
-      {
-         heap[lastIndex] = null;
-         lastIndex--;
-      } // end while
+	   checkIntegrity();
+	   while (lastIndex > -1)
+	   {
+		   heap[lastIndex] = null;
+		   lastIndex--;
+	   } // end while
       lastIndex = 0;
    } // end clear
    
 // Private methods
 // . . .
+   private void reheap (int rootIndex)
+   {
+	   boolean done = false;
+	   T orphan = heap[rootIndex];
+	   int leftChildIndex = 2 * rootIndex;
+	   
+	   while (!done && (leftChildIndex <= lastIndex))
+	   {
+		   int largerChildIndex = leftChildIndex; //Assume larger
+		   int rightChildIndex = leftChildIndex + 1;
+		   if (rightChildIndex <= lastIndex) && heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
+			{
+				heap[rootIndex] = heap[larherChildIndex];
+				rootIndex = largerChildIndex;
+				leftChildIndex = 2 * rootIndex;
+			}
+			else
+				done = true;
+	  }
+	  heap[rootIndex] = orphan;
+   }
 } // end MaxHeap
