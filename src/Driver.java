@@ -7,42 +7,23 @@ public class Driver
 {
 	public static void main(String[] args) throws IOException
 	{
+		System.out.println("Sorted data:");
 		fileRead("src/data_sorted.txt");
-
-		MaxHeap mHeap = new MaxHeap(15);
-                        
-		mHeap.add(5);
-		System.out.println(mHeap.getMax());
-		mHeap.add(3);
-		System.out.println(mHeap.getMax());
-		mHeap.add(17);
-		System.out.println(mHeap.getMax());
-		mHeap.add(10);
-		System.out.println(mHeap.getMax());
-		mHeap.add(84);
-		System.out.println(mHeap.getMax());
-		mHeap.add(19);
-		System.out.println(mHeap.getMax());
-		mHeap.add(6);
-		System.out.println(mHeap.getMax());
-		mHeap.add(22);
-		System.out.println(mHeap.getMax());
-		mHeap.add(9);
-		System.out.println(mHeap.getMax());
+		
+		System.out.println("Sorted random:");
+		fileRead("src/data_random.txt");
 	}
 
 	public static void fileRead(String fileName) throws IOException
 	{
 		Path path = Paths.get(fileName);
-
 		Scanner scnr = new Scanner(path);
 
-		int [] hundredInts = new int[101];
-		int i = 0;
-
+		MaxHeap mHeap = new MaxHeap(100);
 		while (scnr.hasNext()) {
-			hundredInts [i+1] = scnr.nextInt(); 
-			i++;
+			int num = scnr.nextInt();
+			mHeap.add(num);
+			System.out.println(num);
 		}
 		scnr.close();
 	}
