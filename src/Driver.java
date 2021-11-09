@@ -47,27 +47,49 @@ public class Driver
 } */
 
 import java.util.Scanner;
-import java.io.FileNotFoundException;
-import java.io.File;
-import java.net.*;
-//import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
 
 public class Driver
 {
-	public static void main(String[] args) throws FileNotFoundException
+	public void main(String[] args) throws IOException
 	{
-		URL path = Driver.class.getResource("data_sorted.txt");
-		File inputFile = new File(path.getFile());
-		//Reader reader = new BufferedReader(new FileReader(f));
+		fileRead("src/data_sorted.txt");
 
-		//File inputFile = new File("data_sorted.txt");
-		Scanner scnr = new Scanner(inputFile);
+		MaxHeap mHeap = new MaxHeap(15);
+                        
+		mHeap.add(5);
+		System.out.println(mHeap.getMax());
+		mHeap.add(3);
+		System.out.println(mHeap.getMax());
+		mHeap.add(17);
+		System.out.println(mHeap.getMax());
+		mHeap.add(10);
+		System.out.println(mHeap.getMax());
+		mHeap.add(84);
+		System.out.println(mHeap.getMax());
+		mHeap.add(19);
+		System.out.println(mHeap.getMax());
+		mHeap.add(6);
+		System.out.println(mHeap.getMax());
+		mHeap.add(22);
+		System.out.println(mHeap.getMax());
+		mHeap.add(9);
+		System.out.println(mHeap.getMax());
+	}
+
+	public void fileRead(String fileName) throws IOException
+	{
+		Path path = Paths.get(fileName);
+
+		Scanner scnr = new Scanner(path);
 
 		int [] hundredInts = new int[101];
 		int i = 0;
 
 		while (scnr.hasNext()) {
-			hundredInts [i+1] = scnr.nextInt();
+			hundredInts [i+1] = scnr.nextInt(); 
 			i++;
 		}
 		scnr.close();
