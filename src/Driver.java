@@ -1,28 +1,31 @@
 
 import java.util.Scanner;
-
+import java.io.FileNotFoundException;
+import java.io.File;
 
 
 public class Driver
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws FileNotFoundException
 	{
 		System.out.println("test");
 
+		int hundredInts[] = new int[100];
 
-		public static Int[] readIntegers(String dataFileName){
-			
-			File dataFile = new File();
-			Scanner scnr = new Scanner(dataFile);
+		try {
 
-			while(scnr.hasNextInt())
-			{
-				readInt = scnr.nextInt();
+			int i = 0;
+			File inputFile = new File("data.txt");
+			Scanner scnr = new Scanner(inputFile);
 
-				i++;
+			while (scnr.hasNextLine()) {
+				hundredInts[i++] = scnr.nextInt();
 			}
 
 			scnr.close();
+		}
+		catch (FileNotFoundException error) {
+			System.out.println("Error: File Not Found");
 		}
 	}
 }
