@@ -53,7 +53,7 @@ import java.io.IOException;
 
 public class Driver
 {
-	public void main(String[] args) throws IOException
+	public static void main(String[] args) throws IOException
 	{
 		fileRead("src/data_sorted.txt");
 
@@ -79,7 +79,7 @@ public class Driver
 		System.out.println(mHeap.getMax());
 	}
 
-	public void fileRead(String fileName) throws IOException
+	public static void fileRead(String fileName) throws IOException
 	{
 		Path path = Paths.get(fileName);
 
