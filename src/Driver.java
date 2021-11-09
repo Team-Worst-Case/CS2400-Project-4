@@ -10,10 +10,10 @@ public class Driver
 		System.out.println("Sorted data:");
 		heapRead("src/data_sorted.txt");
 
-		/**System.out.println("\n");
+		System.out.println("\n");
 
 		System.out.println("Random data:");
-		heapRead("src/data_random.txt");*/
+		heapRead("src/data_random.txt");
 	}
 
 	public static void fileRead(String fileName) throws IOException

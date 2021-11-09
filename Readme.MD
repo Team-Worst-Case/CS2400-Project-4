@@ -1,13 +1,13 @@
 Members: Christopher Gomez, Joseph Setiawan, Roberto Tabares
 
 Contributions:
-Christopher Gomez - 
-Joseph Setiawan - 
-Roberto Tabares - 
+Christopher Gomez (key_wii) - MaxHeap.java methods, Driver.java
+Joseph Setiawan (setiwon) - 
+Roberto Tabares (RobCT08) - setup Driver's main method
 
 Extra Features: 
 
-Screencast: //
+Screencast: //extra data.txt file
 
 Documentation: https://team-worst-case.github.io/CS2400-Project-4/index.html To access source code, check the repository below.
 Repository link: https://github.com/Team-Worst-Case/CS2400-Project-4
