@@ -9,9 +9,11 @@ public class Driver
 	{
 		System.out.println("Sorted data:");
 		heapRead("src/data_sorted.txt");
-		
+
+		/**System.out.println("\n");
+
 		System.out.println("Random data:");
-		heapRead("src/data_random.txt");
+		heapRead("src/data_random.txt");*/
 	}
 
 	public static void fileRead(String fileName) throws IOException
@@ -40,10 +42,13 @@ public class Driver
 		}
 		scnr.close();
 		
-		while (!mHeap.isEmpty()) {
-			System.out.println(mHeap.getMax());
+		mHeap.print();
+
+		System.out.println("after 10 removals: ");
+		for (int i = 0; i < 10; i++) {
 			mHeap.removeMax();
 		}
+		mHeap.print();
 
 		System.out.println("Swaps: " + mHeap.getSwaps());
 	}

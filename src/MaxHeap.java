@@ -141,6 +141,12 @@ public final class MaxHeap<T extends Comparable<? super T>>
          heap = Arrays.copyOf(heap, newLength);
       }
    }
+
+   public void print()
+   {
+      for (int i = 0; i <= lastIndex / 2; i++)
+         System.out.print(" PARENT : " + heap[i] + " LEFT CHILD : " + heap[2 * i + 1] + " RIGHT CHILD :" + heap[2 * i + 2] + "\n");
+   }
    
 // Private methods
 // . . .
