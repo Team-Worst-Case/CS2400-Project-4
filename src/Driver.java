@@ -24,8 +24,5 @@ public class Driver
 
 			scnr.close();
 		}
-		catch (FileNotFoundException error) {
-			System.out.println("Error: File Not Found");
-		}
 	}
 }
