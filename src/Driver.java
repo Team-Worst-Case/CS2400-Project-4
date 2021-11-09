@@ -8,21 +8,16 @@ public class Driver
 {
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		System.out.println("test");
+		File inputFile = new File("data_sorted.txt");
+		Scanner scnr = new Scanner(inputFile);
 
-		int hundredInts[] = new int[100];
+		int [] hundredInts = new int[101];
+		int i = 0;
 
-		try {
-
-			int i = 0;
-			File inputFile = new File("data.txt");
-			Scanner scnr = new Scanner(inputFile);
-
-			while (scnr.hasNextLine()) {
-				hundredInts[i++] = scnr.nextInt();
-			}
-
-			scnr.close();
+		while (scnr.hasNext()) {
+			hundredInts [i+1] = scnr.nextInt();
+			i++;
 		}
+		scnr.close();
 	}
 }
