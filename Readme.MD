@@ -1,11 +1,11 @@
 Members: Christopher Gomez, Joseph Setiawan, Roberto Tabares
 
 Contributions:
-Christopher Gomez - 
-Joseph Setiawan - 
-Roberto Tabares - 
+Christopher Gomez (key_wii) - MaxHeap.java methods, Driver.java
+Joseph Setiawan (setiwon) - 
+Roberto Tabares (RobCT08) - setup Driver's main method
 
-Extra Features: 
+Extra Features: extra data.txt file
 
 Screencast: //
 

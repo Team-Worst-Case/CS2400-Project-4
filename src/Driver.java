@@ -2,54 +2,50 @@ import java.util.Scanner;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.IOException;
+import java.io.FileWriter;
 
 public class Driver
 {
 	public static void main(String[] args) throws IOException
 	{
-		System.out.println("Sorted data:");
-		heapRead("src/data_sorted.txt");
-
-		/**System.out.println("\n");
-
-		System.out.println("Random data:");
-		heapRead("src/data_random.txt");*/
-	}
-
-	public static void fileRead(String fileName) throws IOException
-	{
-		Path path = Paths.get(fileName);
-		Scanner scnr = new Scanner(path);
-
-		MaxHeap mHeap = new MaxHeap(100);
-		while (scnr.hasNext()) {
-			int num = scnr.nextInt();
-			mHeap.add(num);
-			System.out.println(num);
-		}
-		scnr.close();
-	}
-
-	public static void heapRead(String fileName) throws IOException
-	{
-		Path path = Paths.get(fileName);
-		Scanner scnr = new Scanner(path);
-
-		MaxHeap mHeap = new MaxHeap(100);
-		while (scnr.hasNext()) {
-			int num = scnr.nextInt();
-			mHeap.add(num);
-		}
-		scnr.close();
+		FileWriter file = new FileWriter("output.txt");
+		file.write("Heap built using optimal method (sorted data): ");
+		heapFromFile("src/data_sorted.txt", file);
 		
-		mHeap.print();
+		file.write("\n");
+		file.write("Heap built using optimal method (random data): ");
+		heapFromFile("src/data_random.txt", file);
+		
+		/*file.write("\n");
+		file.write("Heap built using optimal method (letters data): ");
+		heapFromFile("src/data_letters.txt", file);*/
 
-		System.out.println("after 10 removals: ");
-		for (int i = 0; i < 10; i++) {
-			mHeap.removeMax();
+		file.close();
+	}
+
+	public static void heapFromFile(String fileName, FileWriter file) throws IOException
+	{
+		Path path = Paths.get(fileName);
+		Scanner scnr = new Scanner(path);
+
+		MaxHeap mHeap = new MaxHeap(100);
+
+		while (scnr.hasNext()) {
+			//String content = scnr.next();
+			int content = scnr.nextInt();
+			mHeap.add(content);
 		}
-		mHeap.print();
+		scnr.close();
 
-		System.out.println("Swaps: " + mHeap.getSwaps());
+		mHeap.writeToFile(file);
+		file.write("\n");
+		
+		file.write("Number of swaps in the heap creation: " + mHeap.getSwaps());
+		file.write("\n");
+
+		for (int i = 0; i < 10; i++) mHeap.removeMax();
+		file.write("Heap after 10 removals: ");
+		mHeap.writeToFile(file);
+		file.write("\n");
 	}
 }
