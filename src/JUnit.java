@@ -5,13 +5,13 @@ public class  JUnit
 {
 	@Test
 	public void test1() {
-		MaxHeap testHeap = new MaxHeap(5);
+		MaxHeap testHeap = new MaxHeap();
 		assertEquals(null, testHeap.getMax());
 	}
 
 	@Test
 	public void test2() {
-		MaxHeap testHeap = new MaxHeap(5);
+		MaxHeap testHeap = new MaxHeap();
 		testHeap.add(3);
 		testHeap.add(6);
 		testHeap.add(8);
@@ -22,7 +22,7 @@ public class  JUnit
 
 	@Test
 	public void test3() {
-		MaxHeap testHeap = new MaxHeap(5);
+		MaxHeap testHeap = new MaxHeap();
 		testHeap.add(2);
 		testHeap.add(4);
 		testHeap.add(6);
