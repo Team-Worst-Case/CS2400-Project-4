@@ -39,17 +39,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
       integrityOK = true;
    } // end constructor
    
-   public void SequentialInsertions(T[] entries) {
-      checkCapacity(entries.length);
-      int swaps = 0;
-
-    for (int i = 0; i < entries.length; i++) {
-      
-       swaps = this.add(entries[i]) + swaps;
-      }
-        
-   } 
-   
 
    public MaxHeap(T[] entries)
    {
