@@ -9,11 +9,10 @@ public class  JUnit
         Integer[] testValues = {10,20,30,40,50,80}; // change to our desired values if need be
         MaxHeap<Integer> optimalHeap = new MaxHeap<>(testValues);
 
-        Integer[] testResult = new Integer[5];
+        Integer[] testResult = new Integer[6];
 
         for (int index = 0; index < optimalHeap.getSize(); index++) {
-
-            testResult[index-1] = optimalHeap.getMax(); // might be wrong with 'getMax'
+            testResult[index] = optimalHeap.getMax(); // might be wrong with 'getMax'
         }
 
         // Create expectedResult from scratch
@@ -28,7 +27,7 @@ public class  JUnit
         //Create test values for heap test
         //Integer[] testValues = {10,20,30,40,50,80};
         MaxHeap<Integer> sequentialHeap = new MaxHeap<>();
-        for (int i = 0; i < 100; i++) sequentialHeap.add(i);
+        for (int i = 0; i < 5; i++) sequentialHeap.add(i);
 
         Integer[] testResult = new Integer[sequentialHeap.getSize()];
 
@@ -37,7 +36,7 @@ public class  JUnit
         }
 
         // Create expectedResult from scratch
-        Integer[] expectedResult = {50, 20, 80, 40, 10, 30};
+        Integer[] expectedResult = {5, 2, 4, 1, 3};
 
         // Created Heap should match expected Heap using sequential method
         assertArrayEquals(expectedResult, testResult);
