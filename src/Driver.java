@@ -23,6 +23,16 @@ public class Driver
 		file.close();
 	}
 
+	public void SequentialInsertions(T[] entries) {
+		checkCapacity(entries.length);
+  
+	  for (int i = 0; i < entries.length; i++) {
+		
+		 add(entries[i]);
+		}
+		  
+	 } 
+
 	public static void heapFromFile(String fileName, FileWriter file) throws IOException
 	{
 		Path path = Paths.get(fileName);
