@@ -24,8 +24,7 @@ public class  JUnit
         assertArrayEquals(expectedResult, testResult);
     }
 
-
-    public void testSequentialMethod {
+    public void testSequentialInAddMethod {
         // Almost the same thing as optimal method, just need to change a couple things
         /*
         Integer[] testValues = {10,20,30,40,50,80};
@@ -46,12 +45,23 @@ public class  JUnit
     }
 
     public void testRemoveMaxMethod {
-        //TBA
+        
+        Integer[] removeValues = {};
 
-    }
+        MaxHeap<Integer> currentHeap = new MaxHeap<>();
+        currentHeap.MaxHeap(removeValues);
+        Driver.removeMax(currentHeap);
 
-    public void testAddMethod {
-        //TBA
+        Integer[] testResult = new Integer[currentHeap.getSize()];
 
+        for (int index = 0; index < currentHeap.getSize() +1; index++)
+        {
+            testResult[index-1] = currentHeap.getMax(index);
+        }
+
+        // Create expected outcome
+        Integer[] expectedResult = {};
+
+        asserArayEquals(expectedResult, testResult);
     }
 }
