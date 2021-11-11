@@ -23,7 +23,7 @@ public class Driver
 		file.close();
 	}
 
-	public <T> T[] fileToArray(String fileName, FileWriter file) {
+	public <T> T[] fileToArray(String fileName, FileWriter file) throws IOException {
 		Path path = Paths.get(fileName);
 		Scanner scnr = new Scanner(path);
 
