@@ -2,12 +2,9 @@ import org.junit.Test;
 import org.mockito.Mockito.*;
 import static org.junit.Assert.*;
 
-
-
-
 public class  JUnit
 {
-    public void testOptimalMaxHeapMethod {
+    public void testOptimalInMaxHeapMethod() {
         Integer[] testValues = {10,20,30,40,50,80}; // change to our desired values if need be
         MaxHeap<Integer> optimalHeap = new MaxHeap<>();
         optimalHeap.MaxHeap(testValues);
@@ -24,7 +21,7 @@ public class  JUnit
         assertArrayEquals(expectedResult, testResult);
     }
 
-    public void testSequentialInAddMethod {
+    public void testSequentialInAddMethod() {
         // Almost the same thing as optimal method, just need to change a couple things
         /*
         Integer[] testValues = {10,20,30,40,50,80};
@@ -44,7 +41,7 @@ public class  JUnit
         */
     }
 
-    public void testRemoveMaxMethod {
+    public void testRemoveMaxMethod() {
         
         Integer[] removeValues = {};
 
