@@ -26,8 +26,35 @@ public class Driver
 	public <T> T[] fileToArray(String fileName, FileWriter file) throws IOException {
 		Path path = Paths.get(fileName);
 		Scanner scnr = new Scanner(path);
+		
+		
+
+		while (scnr.hasNextLine())
+		{
+			
+		}
 
 		//make array
+		class MyArray<T> {
+			private Object[] T;
+		
+			MyArray() {
+				this.T = new Object[1];
+			}
+		
+			T get(int index) {
+				return (T) T[index];
+			}
+		
+			void set(int index, T value) {
+				T[index] = value;
+			}
+		} 
+		
+		for (int i = 0; i < index.length; i++) {
+				T[i] = 
+			
+		   }
 
 		while (scnr.hasNext()) {
 			int content = scnr.nextInt();
@@ -36,6 +63,7 @@ public class Driver
 		scnr.close();
 
 		//return array
+		return intArray;
 	}
 
 	public static void heapFromFile(String fileName, FileWriter file) throws IOException
