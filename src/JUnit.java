@@ -3,9 +3,37 @@ import static org.junit.Assert.*;
 
 public class  JUnit
 {
-    @Test
-    public void testOptimalInMaxHeapMethod() {
+	@Test
+	public void test1() {
+		MaxHeap testHeap = new MaxHeap(5);
+		assertEquals(null, testHeap.getMax());
+	}
 
+	@Test
+	public void test2() {
+		MaxHeap testHeap = new MaxHeap(5);
+		testHeap.add(3);
+		testHeap.add(6);
+		testHeap.add(8);
+		testHeap.add(4);
+		testHeap.add(5);
+		assertEquals(5, testHeap.getSize());
+	}
+
+	@Test
+	public void test3() {
+		MaxHeap testHeap = new MaxHeap(5);
+		testHeap.add(2);
+		testHeap.add(4);
+		testHeap.add(6);
+		testHeap.add(4);
+		testHeap.add(5);
+		assertEquals(6, testHeap.getMax());
+	}
+
+
+	@Test
+    public void testOptimalInMaxHeapMethod() {
         Integer[] testValues = {10,20,30,40,50,80}; // change to our desired values if need be
         MaxHeap<Integer> optimalHeap = new MaxHeap<>(testValues);
 

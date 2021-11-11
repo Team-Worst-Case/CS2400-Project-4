@@ -33,23 +33,6 @@ public class Driver
 		{
 			
 		}
-
-		//make array
-		class MyArray<T> {
-			private Object[] T;
-		
-			MyArray() {
-				this.T = new Object[1];
-			}
-		
-			T get(int index) {
-				return (T) T[index];
-			}
-		
-			void set(int index, T value) {
-				T[index] = value;
-			}
-		} 
 		
 		for (int i = 0; i < index.length; i++) {
 				T[i] = 
