@@ -23,15 +23,20 @@ public class Driver
 		file.close();
 	}
 
-	public void SequentialInsertions(T[] entries) {
-		checkCapacity(entries.length);
-  
-	  for (int i = 0; i < entries.length; i++) {
-		
-		 add(entries[i]);
+	public <T> T[] fileToArray(String fileName, FileWriter file) throws IOException {
+		Path path = Paths.get(fileName);
+		Scanner scnr = new Scanner(path);
+
+		//make array
+
+		while (scnr.hasNext()) {
+			int content = scnr.nextInt();
+			//add to array
 		}
-		  
-	 } 
+		scnr.close();
+
+		//return array
+	}
 
 	public static void heapFromFile(String fileName, FileWriter file) throws IOException
 	{
