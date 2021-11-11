@@ -35,12 +35,18 @@ public class  JUnit
 	@Test
     public void testOptimalInMaxHeapMethod() {
         Integer[] testValues = {10,20,30,40,50,80}; // change to our desired values if need be
-        MaxHeap<Integer> optimalHeap = new MaxHeap<>(testValues);
+        MaxHeap optimalHeap = new MaxHeap();
+        optimalHeap.add(2);
+        optimalHeap.add(4);
+        optimalHeap.add(6);
+        optimalHeap.add(4);
+        optimalHeap.add(5);
 
         Integer[] testResult = new Integer[6];
 
-        for (int index = 1; index < optimalHeap.getSize()+1; index++) {
+        for (int index = 1; index <= optimalHeap.getSize(); index++) {
             testResult[index] = optimalHeap.getMax(); // might be wrong with 'getMax'
+            optimalHeap.removeMax();
         }
 
         // Create expectedResult from scratch
