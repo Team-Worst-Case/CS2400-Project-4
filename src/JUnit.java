@@ -11,7 +11,7 @@ public class  JUnit
 
         Integer[] testResult = new Integer[6];
 
-        for (int index = 0; index < optimalHeap.getSize(); index++) {
+        for (int index = 1; index < optimalHeap.getSize()+1; index++) {
             testResult[index] = optimalHeap.getMax(); // might be wrong with 'getMax'
         }
 
