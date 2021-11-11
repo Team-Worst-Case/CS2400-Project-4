@@ -39,7 +39,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
       integrityOK = true;
    } // end constructor
    
-   public void SequentialInsertsions( T[] entries) {
+   public void SequentialInsertions( T[] entries) {
       checkCapacity(entries.length);
    }
 
