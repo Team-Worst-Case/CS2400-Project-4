@@ -7,14 +7,13 @@ public class  JUnit
     public void testOptimalInMaxHeapMethod() {
 
         Integer[] testValues = {10,20,30,40,50,80}; // change to our desired values if need be
-        MaxHeap<Integer> optimalHeap = new MaxHeap<>();
-        optimalHeap.MaxHeap(testValues);
+        MaxHeap<Integer> optimalHeap = new MaxHeap<>(testValues);
 
         Integer[] testResult = new Integer[5];
 
         for (int index = 0; index < optimalHeap.getSize(); index++) {
 
-            testResult[index-1] = optimalHeap.getMax(index); // might be wrong with 'getMax'
+            testResult[index-1] = optimalHeap.getMax(); // might be wrong with 'getMax'
         }
 
         // Create expectedResult from scratch
@@ -26,15 +25,15 @@ public class  JUnit
     public void testSequentialMethod() {
 
         //Create test values for heap test
-        Integer[] testValues = {10,20,30,40,50,80};
+        //Integer[] testValues = {10,20,30,40,50,80};
         MaxHeap<Integer> sequentialHeap = new MaxHeap<>();
-        sequentialHeap.SequentialInsertions(testValues);
+        for (int i = 0; i < 100; i++) sequentialHeap.add(i);
 
         Integer[] testResult = new Integer[5];
 
         for (int index = 0; index < sequentialHeap.getSize(); index++) {
 
-            testResult[index-1] = sequentialHeap.getMax(index);
+            testResult[index-1] = sequentialHeap.getMax();
         }
 
         // Create expectedResult from scratch
@@ -50,20 +49,19 @@ public class  JUnit
         //Create test values for heap test
         Integer[] removeValue = {100,94,99,77,93,98,61,68,76,84};
 
-        MaxHeap<Integer> currentHeap = new MaxHeap<>();
-        currentHeap.MaxHeap(removeValue);
-        Driver.removeMax(currentHeap);
+        MaxHeap<Integer> currentHeap = new MaxHeap<>(removeValue);
+        currentHeap.removeMax();
 
         Integer[] testResult = new Integer[currentHeap.getSize()];
 
         for (int index = 1; index < currentHeap.getSize() +1; index++)
         {
-            testResult[index-1] = currentHeap.getMax(index);
+            testResult[index-1] = currentHeap.getMax();
         }
 
         // Create expected outcome form current made Heap
         Integer[] expectedResult = {77}; // should be 100? returning max heap
 
-        asserArayEquals(expectedResult, testResult);
+        assertArrayEquals(expectedResult, testResult);
     }
 }
