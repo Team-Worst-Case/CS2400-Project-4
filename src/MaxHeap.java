@@ -53,25 +53,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
 	   for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
 		   reheap(rootIndex);
    }
-   
-   public void optimalMethod(T[] entries)
-   {
-	   int entryLength = entries.length;
-      if (entryLength < DEFAULT_CAPACITY)
-         entryLength = DEFAULT_CAPACITY;
-      else
-         checkCapacity(entryLength);
-
-      @SuppressWarnings("unchecked")
-      T[] tempHeap = (T[]) new Comparable[entryLength + 1];
-      heap = tempHeap;
-      lastIndex = entries.length;
-      for (int index = 0; index < entries.length; index++)
-         heap[index + 1] = entries[index];
-
-      for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
-         reheap(rootIndex);
-   }
 
    public void add(T newEntry)
    {
