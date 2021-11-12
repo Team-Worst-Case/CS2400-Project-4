@@ -21,48 +21,23 @@ public class Driver
 		heapFromFile("src/data_letters.txt", file);*/
 
 		file.close();
-	}
-
-	/*public <T> T[] fileToArray(String fileName, FileWriter file) throws IOException {
-		Path path = Paths.get(fileName);
-		Scanner scnr = new Scanner(path);
 		
-		int i = 0;
+		//test for joseph
+		/*Integer test[] = new Integer[10];
 
-		int content[] = new int [10];
+		test = fileToArray("data_random.txt");
 
-		T[] potato;
-
-		T[1] = 0;
-
-
-		while (scnr.hasNextLine())
+		for(int i = 0; i < 10; i ++)
 		{
-			potato.add(scnr.nextInt());
-		}
-		
-		for (int j = 0; j < index.length; j++) {
-				T[j] = 
-			
-		   }
-
-		while (scnr.hasNext()) {
-			T content = scnr.nextInt();
-			//add to array
-		}
-
-		scnr.close();
-
-		//return array
-		return potato;
+			System.out.println(test[i]);
+		}*/
 	}
-	*/
 
 	public static Integer[] fileToArray(Scanner scnr) throws IOException {
 		Integer[] array = new Integer[100];
 		Integer i = 0;
 		
-		while (scnr.hasNextLine())
+		while (scnr.hasNextLine() && i < 10)
 		{
 			array[i] = scnr.nextInt();
 			i++;
