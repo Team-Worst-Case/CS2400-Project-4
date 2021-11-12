@@ -58,12 +58,9 @@ public class Driver
 	}
 	*/
 
-	public int[] fileToArray(String fileName, FileWriter file) throws IOException {
-		Path path = Paths.get(fileName);
-		Scanner scnr = new Scanner(path);
-		
-		int array[] = new int[10];
-		int i = 0;
+	public static Integer[] fileToArray(Scanner scnr) throws IOException {
+		Integer[] array = new Integer[100];
+		Integer i = 0;
 		
 		while (scnr.hasNextLine())
 		{
@@ -71,9 +68,6 @@ public class Driver
 			i++;
 		}
 		
-		scnr.close();
-
-		//return array
 		return array;
 	}
 
@@ -83,6 +77,11 @@ public class Driver
 		Scanner scnr = new Scanner(path);
 
 		MaxHeap mHeap = new MaxHeap(100);
+		Integer[] heapArr = new Integer[100];
+
+		heapArr = fileToArray(scnr);
+
+		MaxHeap mHeap2 = new MaxHeap(heapArr);
 
 		while (scnr.hasNext()) {
 			//String content = scnr.next();
