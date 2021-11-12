@@ -34,10 +34,10 @@ public class Driver
 	}
 
 	public static Integer[] fileToArray(Scanner scnr) throws IOException {
-		Integer array[] = new Integer[10];
+		Integer array[] = new Integer[100];
 		Integer i = 0;
 		
-		while (scnr.hasNextLine() && i < 10)
+		while (scnr.hasNextLine() && i < 100)
 		{
 			array[i] = scnr.nextInt();
 			i++;
