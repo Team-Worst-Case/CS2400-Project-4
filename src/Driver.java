@@ -58,7 +58,7 @@ public class Driver
 	}
 	*/
 
-	public int[] fileToArray(String fileName, FileWriter file) throws IOException {
+	public int[] fileToArray(String fileName) throws IOException {
 		Path path = Paths.get(fileName);
 		Scanner scnr = new Scanner(path);
 		
