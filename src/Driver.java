@@ -21,6 +21,18 @@ public class Driver
 		heapFromFile("src/data_letters.txt", file);*/
 
 		file.close();
+		
+		//test for joseph
+		/*Integer test[] = new Integer[10];
+
+		test = fileToArray("data_random.txt");
+
+		for(int i = 0; i < 10; i ++)
+		{
+			System.out.println(test[i]);
+		}*/
+
+		
 	}
 
 	/*public <T> T[] fileToArray(String fileName, FileWriter file) throws IOException {
@@ -58,14 +70,14 @@ public class Driver
 	}
 	*/
 
-	public int[] fileToArray(String fileName) throws IOException {
+	public static Integer[] fileToArray(String fileName) throws IOException {
 		Path path = Paths.get(fileName);
 		Scanner scnr = new Scanner(path);
 		
-		int array[] = new int[10];
-		int i = 0;
+		Integer array[] = new Integer[10];
+		Integer i = 0;
 		
-		while (scnr.hasNextLine())
+		while (scnr.hasNextLine() && i < 10)
 		{
 			array[i] = scnr.nextInt();
 			i++;
