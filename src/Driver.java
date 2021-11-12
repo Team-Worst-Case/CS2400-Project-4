@@ -3,6 +3,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class Driver
 {
@@ -23,30 +24,58 @@ public class Driver
 		file.close();
 	}
 
-	public <T> T[] fileToArray(String fileName, FileWriter file) throws IOException {
+	/*public <T> T[] fileToArray(String fileName, FileWriter file) throws IOException {
 		Path path = Paths.get(fileName);
 		Scanner scnr = new Scanner(path);
 		
-		
+		int i = 0;
+
+		int content[] = new int [10];
+
+		T[] potato;
+
+		T[1] = 0;
+
 
 		while (scnr.hasNextLine())
 		{
-			
+			potato.add(scnr.nextInt());
 		}
 		
-		for (int i = 0; i < index.length; i++) {
-				T[i] = 
+		for (int j = 0; j < index.length; j++) {
+				T[j] = 
 			
 		   }
 
 		while (scnr.hasNext()) {
-			int content = scnr.nextInt();
+			T content = scnr.nextInt();
 			//add to array
 		}
+
 		scnr.close();
 
 		//return array
-		return intArray;
+		return potato;
+	}
+	*/
+
+	public int[] fileToArray(String fileName, FileWriter file) throws IOException {
+		Path path = Paths.get(fileName);
+		Scanner scnr = new Scanner(path);
+		
+		int array[] = new int[10];
+		int i = 0;
+		
+		while (scnr.hasNextLine())
+		{
+			array[i] = scnr.nextInt();
+			i++;
+		}
+		
+		scnr.close();
+
+		//return array
+		return array;
 	}
 
 	public static void heapFromFile(String fileName, FileWriter file) throws IOException
