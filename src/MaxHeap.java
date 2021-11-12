@@ -43,6 +43,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
    {
 	   this (entries.length); // Call other constructor
 	   assert integrityOK = true;
+      lastIndex = entries.length;
 	   
 	   //Copy given array to data field
 	   for (int index = 0; index < entries.length; index++)
