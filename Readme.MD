@@ -5,7 +5,7 @@ Christopher Gomez (key_wii) - MaxHeap.java methods, Driver.java setup and debugg
 Joseph Setiawan (setiwon) - fileToArray method
 Roberto Tabares (RobCT08) - JUnit tests
 
-Extra Features: video demo, javadoc
+Extra Features: video demo, javadoc, junit
 
 Screencast: https://youtu.be/3nsM6yET9es
 
