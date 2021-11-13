@@ -5,13 +5,13 @@ public class  JUnit
 {
 	@Test
 	public void test1() {
-		MaxHeap testHeap = new MaxHeap();
+		MaxHeap<Integer> testHeap = new MaxHeap<>();
 		assertEquals(null, testHeap.getMax());
 	}
 
 	@Test
 	public void test2() {
-		MaxHeap testHeap = new MaxHeap();
+		MaxHeap<Integer> testHeap = new MaxHeap<>();
 		testHeap.add(3);
 		testHeap.add(6);
 		testHeap.add(8);
@@ -22,7 +22,7 @@ public class  JUnit
 
 	@Test
 	public void test3() {
-		MaxHeap testHeap = new MaxHeap();
+		MaxHeap<Integer> testHeap = new MaxHeap<>();
 		testHeap.add(2);
 		testHeap.add(4);
 		testHeap.add(6);
@@ -35,7 +35,7 @@ public class  JUnit
 	@Test
     public void testOptimalInMaxHeapMethod() {
         Integer[] testValues = {10,20,30,40,50,80}; // change to our desired values if need be
-        MaxHeap optimalHeap = new MaxHeap();
+        MaxHeap<Integer> optimalHeap = new MaxHeap<>();
         optimalHeap.add(2);
         optimalHeap.add(4);
         optimalHeap.add(6);
