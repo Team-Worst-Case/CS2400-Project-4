@@ -10,8 +10,10 @@ public class Driver
 	{
 		FileWriter file = new FileWriter("output.txt");
 
+		file.write("Sorted Data\n");
 		heapFromFile("src/data_sorted.txt", file);
 		file.write("\n");
+		file.write("Random Data\n");
 		heapFromFile("src/data_random.txt", file);
 		/*file.write("\n");
 		heapFromFile("src/data_letters.txt", file);*/
@@ -37,41 +39,42 @@ public class Driver
 		Path path = Paths.get(fileName);
 		Scanner scnr = new Scanner(path);
 
-		MaxHeap mHeap = new MaxHeap(100);
-
 		Integer[] heapArr = new Integer[100];
 		heapArr = fileToArray(scnr);
-		MaxHeap mHeap2 = new MaxHeap(heapArr);
+		MaxHeap mHeapOpti = new MaxHeap(heapArr);
+		
 		file.write("Heap built using optimal method: ");
-		mHeap2.writeToFile(file);
+		mHeapOpti.writeToFile(file);
 		file.write("\n");
 		
-		file.write("Number of swaps in the heap creation: " + mHeap.getSwaps());
+		file.write("Number of swaps in the heap creation: " + mHeapOpti.getSwaps());
 		file.write("\n");
 
-		for (int i = 0; i < 10; i++) mHeap.removeMax();
+		for (int i = 0; i < 10; i++) mHeapOpti.removeMax();
 		file.write("Heap after 10 removals: ");
-		mHeap.writeToFile(file);
+		mHeapOpti.writeToFile(file);
 		file.write("\n\n");
 
 		scnr = new Scanner(path);
+		MaxHeap mHeapSeq = new MaxHeap(100);
+
 		while (scnr.hasNext()) {
 			//String content = scnr.next();
 			int content = scnr.nextInt();
-			mHeap.add(content);
+			mHeapSeq.add(content);
 		}
 		scnr.close();
 
 		file.write("Heap built using sequential method: ");
-		mHeap.writeToFile(file);
+		mHeapSeq.writeToFile(file);
 		file.write("\n");
 		
-		file.write("Number of swaps in the heap creation: " + mHeap.getSwaps());
+		file.write("Number of swaps in the heap creation: " + mHeapSeq.getSwaps());
 		file.write("\n");
 
-		for (int i = 0; i < 10; i++) mHeap.removeMax();
+		for (int i = 0; i < 10; i++) mHeapSeq.removeMax();
 		file.write("Heap after 10 removals: ");
-		mHeap.writeToFile(file);
+		mHeapSeq.writeToFile(file);
 		file.write("\n\n");
 	}
 }
