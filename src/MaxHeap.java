@@ -170,6 +170,11 @@ public final class MaxHeap<T extends Comparable<? super T>>
 		   int rightChildIndex = leftChildIndex + 1;
 		   if (rightChildIndex <= lastIndex && heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
 			{
+				largerChildIndex = rightChildIndex;
+         }
+
+         if (orphan.compareTo(heap[largerChildIndex]) < 0)
+         {
 				heap[rootIndex] = heap[largerChildIndex];
 				rootIndex = largerChildIndex;
 				leftChildIndex = 2 * rootIndex;
