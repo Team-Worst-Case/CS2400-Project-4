@@ -7,7 +7,7 @@ Roberto Tabares (RobCT08) - JUnit tests
 
 Extra Features: video demo, javadoc
 
-Screencast: 
+Screencast: https://youtu.be/3nsM6yET9es
 
 Documentation: https://team-worst-case.github.io/CS2400-Project-4/index.html To access source code, check the repository below.
 Repository link: https://github.com/Team-Worst-Case/CS2400-Project-4
