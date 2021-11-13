@@ -65,7 +65,7 @@ public class Driver
 		}
 		scnr.close();
 
-		file.write("Heap built using sequential method: ");
+		file.write("Heap built using sequential insertions: ");
 		mHeapSeq.writeToFile(file);
 		file.write("\n");
 		
